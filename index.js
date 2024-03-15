@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
+app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -34,6 +36,8 @@ var db = {
         },
     ]
 }
+
+
 // Rotas GET 
 app.get("/games",(req, res)=>{
     res.statusCode = 200;
@@ -57,10 +61,10 @@ app.get("/game/:id",(req,res)=>{
 
 // Rotas POST 
 app.post("/game",(req,res)=>{
-    var {title, price, year} = req.body;
+    var {id,title, price, year} = req.body;
 
     db.games.push({
-        id: 55 ,
+        id,
         title,
         price,
         year
@@ -113,7 +117,7 @@ app.delete("/game/:id", (req, res)=>{
 })
 
 
-
+//{{captured:descri chamado}} 
 
 
 // localhost:8080/games - (get all)
