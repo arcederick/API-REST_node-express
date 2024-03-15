@@ -1,0 +1,9 @@
+ 
+
+npm init 
+npm install express --save 
+npm install body-parser --save 
+npm install cors --save (para instalar o cors - liberação web)
+
+npm install nodemon -g 
+npm install ejs --save 
